@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(logger("dev"));
 
 router.get("/", (req, res) => {
-  res.json({ message: "HELLOW WORLDUUHHHH" });
+  res.json({ message: "HELLOW WORLD" });
 });
 
 router.get("/getData", (req, res) => {

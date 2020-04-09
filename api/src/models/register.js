@@ -15,6 +15,10 @@ const userSchema = new Schema({
 		type: String,
 		required: true,
 	},
+	isAdmin: {
+		type: Boolean,
+		default: false,
+	},
 });
 
 export const register = mongoose.model('user', userSchema, 'users');

@@ -1,4 +1,4 @@
-import RegisterModel from '../register/register.model';
+import RegisterModel from '../models/register';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import vm from 'v-response';

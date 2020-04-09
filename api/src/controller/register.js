@@ -1,5 +1,5 @@
 //import the model file
-import RegisterModel from './register.model';
+import RegisterModel from '../models/register';
 //import bcrypt for hashing of user password
 import bcrypt from 'bcrypt';
 //import v-response an npm package that help log error in a well formatted manner

@@ -1,7 +1,7 @@
 'use strict';
 import express from 'express';
 import bodyParser from 'body-parser';
-import vm from 'v-response';
+import logger from 'v-response';
 import mongoose from 'mongoose';
 import config from 'config';
 import register_route from './src/api/auth/register/register.route';
@@ -25,6 +25,6 @@ app.use(prefix, login_route);
 
 mongoose
 	.connect(db, { useNewUrlParser: true })
-	.then(() => vm.log('connected to mongoDB', db))
-	.catch(err => vm.log('error mongodb', err));
-app.listen(port, vm.log('listing on port', port));
+	.then(() => logger.log('connected to mongoDB', db))
+	.catch(err => logger.log('error mongodb', err));
+app.listen(port, logger.log('listing on port', port));

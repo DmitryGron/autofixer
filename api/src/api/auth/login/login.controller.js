@@ -6,6 +6,7 @@ import vm from 'v-response';
 exports.login = (req, res, next) => {
 	const email = req.body.email;
 	const password = req.body.password;
+	console.log('BLAHBLAH')
 	RegisterModel.findOne({ email: email }).then(user => {
 		if (!user) {
 			return res

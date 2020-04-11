@@ -16,6 +16,7 @@ exports.create = async (req, res, next) => {
 		// else we are creating a new user
 		let registration_body = req.body;
 		const new_user = new RegisterModel(registration_body);
+		console.log('new_user', new_user);
 		bcrypt.genSalt(10, (err, salt) => {
 			// here we are hashing the user password
 			bcrypt.hash(new_user.password, salt, (err, hash) => {
@@ -31,8 +32,8 @@ exports.create = async (req, res, next) => {
 						}
 					})
 					.catch(error => {
-						console.log('error', error);
-						return res.status(500).json(vm.ApiResponse(false, 500, 'an error occur please try again', error));
+						console.log('ERROR', error);
+						return res.status(500).json(vm.ApiResponse(false, 500, error.message, error));
 					});
 			});
 		});

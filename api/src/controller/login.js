@@ -3,10 +3,8 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import vm from 'v-response';
 
-exports.login = (req, res, next) => {
-	const email = req.body.email;
-	const password = req.body.password;
-	console.log('BLAHBLAH')
+const login = (req, res, next) => {
+	const { email, password } = req.body;
 	RegisterModel.findOne({ email: email }).then(user => {
 		if (!user) {
 			return res
@@ -23,7 +21,7 @@ exports.login = (req, res, next) => {
 					return res.status(200).json(
 						vm.ApiResponse(true, 200, 'login successful', {
 							user: user,
-							toke: 'Bearer ' + token,
+							token: 'Bearer ' + token,
 						})
 					);
 				});
@@ -31,3 +29,5 @@ exports.login = (req, res, next) => {
 		});
 	});
 };
+
+module.exports = login;

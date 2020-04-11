@@ -6,7 +6,7 @@ const db = config.get('database.url');
 
 const InitiateMongoServer = async () => {
 	mongoose
-	.connect(db, { useNewUrlParser: true })
+	.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => logger.log('connected to mongoDB', db))
 	.catch(err => logger.log('error mongodb', err));
 };

@@ -29,7 +29,7 @@ const userSchema = new Schema({
 		type: String,
 		validate: {
 		  validator: function(phone) {
-			return /\d{3}-\d{3}-\d{4}/.test(phone);
+			return /\d{3}-\d{2}-\d{3}/.test(phone);
 		  },
 		  message: props => `${props.value} is not a valid phone number`
 		},
